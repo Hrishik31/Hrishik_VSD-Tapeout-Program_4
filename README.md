@@ -137,6 +137,9 @@ ngspice day1_nfet_idvds_L2_W5.spice
 # In ngspice prompt
 plot -vdd#branch
 ```
+#### Expected Results
+
+![Id vs Vds Long Channel](https://user-images.githubusercontent.com/63381455/154033661-8f20fdbc-56b8-422e-942d-5015f28c781f.JPG)
 
 ### Results
 
@@ -189,9 +192,6 @@ ngspice day1_nfet_idvgs_L2_W5.spice
 plot -vdd#branch
 ```
 
-#### Expected Results
-
-![Id vs Vgs Curve](https://user-images.githubusercontent.com/63381455/154209289-48fdef8b-a5a4-4a9e-a550-d3ccbbf521f2.png)
 
 #### Results
 
