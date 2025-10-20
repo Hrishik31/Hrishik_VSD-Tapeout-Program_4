@@ -795,8 +795,9 @@ tp_fall = 2.8488e-10 s = 284.88 ps = 0.28488 ns
 ---
 
 ## **Summary (final values)**
-Rise propagation delay (tp_rise) = 3.3333e-10 s = 333.33 ps
-Fall propagation delay (tp_fall) = 2.8488e-10 s = 284.88 ps
+-Rise propagation delay (tp_rise) = 3.3333e-10 s = 333.33 ps
+
+-Fall propagation delay (tp_fall) = 2.8488e-10 s = 284.88 ps
 
 <img width="887" height="758" alt="spice_day3_transient_risedelay_falldelay_2 34" src="https://github.com/user-attachments/assets/47d31873-fed2-4e3f-bf62-db39ad125a9c" />
 
