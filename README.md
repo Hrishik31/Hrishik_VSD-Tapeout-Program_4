@@ -138,10 +138,6 @@ ngspice day1_nfet_idvds_L2_W5.spice
 plot -vdd#branch
 ```
 
-#### Expected Results
-
-![Id vs Vds Long Channel](https://user-images.githubusercontent.com/63381455/154033661-8f20fdbc-56b8-422e-942d-5015f28c781f.JPG)
-
 ### Results
 
 <img width="822" height="697" alt="spice_day1_id_vds" src="https://github.com/user-attachments/assets/3896062d-922e-4cdd-abd2-5f8497aab443" />
