@@ -1011,7 +1011,7 @@ In Day 4, we will explore:
    - Maximum input voltage recognized as logic '0'
    - Defined where dVout/dVin = -1 (unity gain point) on rising edge
 
-![Noise Margin Parameters](https://user-images.githubusercontent.com/63381455/152843755-83a4eb04-74a0-4db2-91c3-3469e562ad19.png)
+
 
 ### 4.3 Noise Margin Definitions
 
@@ -1046,8 +1046,6 @@ NML = VIL - VOL
 4. Read VOL and VOH from VTC extremes
 5. Calculate NML = VIL - VOL
 6. Calculate NMH = VOH - VIH
-
-![Noise Margin Extraction](https://user-images.githubusercontent.com/63381455/152843762-231be30e-8ef5-4314-a2b0-8ec7773097e1.png)
 
 ### 4.5 Analytical Understanding
 
