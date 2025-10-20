@@ -738,27 +738,65 @@ plot out vs time in
 
 **Delay Measurements:**
 
-Using SPICE .measure statements:
-```spice
-.measure tran tpLH trig v(in) val=0.9 fall=1 
-+                  targ v(out) val=0.9 rise=1
+# **Transient Delay Extraction — Detailed Calculation**
 
-.measure tran tpHL trig v(in) val=0.9 rise=1 
-+                  targ v(out) val=0.9 fall=1
+**Context:** values from ngspice output (screenshot):
+- First rising-crossing point: `x0 = 2.15167e-09` s, `y0 = 0.902174`
+- Second rising-crossing point: `x0 = 2.485e-09` s, `y0 = 0.901087`
+- First falling-crossing candidate: `x0 = 4.05e-09` s, `y0 = 0.9`
+- Second falling-crossing candidate: `x0 = 4.33488e-09` s, `y0 = 0.898913`
 
-.measure tran tr trig v(out) val=0.18 rise=1 
-+                targ v(out) val=1.62 rise=1
 
-.measure tran tf trig v(out) val=1.62 fall=1 
-+                targ v(out) val=0.18 fall=1
-```
+---
 
-**Expected Results (Wp/Wn = 2.34):**
-- tpHL ≈ 75 ps (NMOS pull-down)
-- tpLH ≈ 73 ps (PMOS pull-up)
-- tr ≈ 100 ps
-- tf ≈ 90 ps
-- tp = (73 + 75)/2 = **74 ps**
+## **Definitions**
+- **Rise propagation delay (tpLH)** ≈ time difference between the two specified rising crossing points:
+tp_rise = t2_rise − t1_rise
+
+
+- **Fall propagation delay (tpHL)** ≈ time difference between the two specified falling crossing points:
+tp_fall = t2_fall − t1_fall
+
+
+
+---
+
+## **Numeric calculation (SI units)**
+
+### Rise delay
+t1_rise = 2.15167e-09 s
+t2_rise = 2.48500e-09 s
+
+tp_rise = t2_rise - t1_rise
+= 2.48500e-09 - 2.15167e-09
+= 3.3333000000000013e-10 s
+
+
+
+Convert to convenient units:
+tp_rise = 3.3333e-10 s = 333.33 ps = 0.33333 ns
+
+
+### Fall delay
+t1_fall = 4.05000e-09 s
+t2_fall = 4.33488e-09 s
+
+tp_fall = t2_fall - t1_fall
+= 4.33488e-09 - 4.05000e-09
+= 2.8488000000000036e-10 s
+
+
+
+Convert to convenient units:
+tp_fall = 2.8488e-10 s = 284.88 ps = 0.28488 ns
+
+
+
+---
+
+## **Summary (final values)**
+Rise propagation delay (tp_rise) = 3.3333e-10 s = 333.33 ps
+Fall propagation delay (tp_fall) = 2.8488e-10 s = 284.88 ps
 
 <img width="887" height="758" alt="spice_day3_transient_risedelay_falldelay_2 34" src="https://github.com/user-attachments/assets/47d31873-fed2-4e3f-bf62-db39ad125a9c" />
 
