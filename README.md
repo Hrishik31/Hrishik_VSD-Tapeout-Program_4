@@ -589,7 +589,6 @@ For SKY130: μn/μp ≈ 2.5, so:
 tp = (tpLH + tpHL)/2
 ```
 
-![Propagation Delay](https://user-images.githubusercontent.com/63381455/152681840-7b0078e8-33b7-46a7-9cc6-faae6b709947.png)
 
 ### 3.3 Inverter Sizing for Balanced Delays
 
