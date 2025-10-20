@@ -1,18 +1,5 @@
 # CMOS Circuit Design and SPICE Simulation using SKY130 Technology
 
-![CMOS Workshop Banner](https://user-images.githubusercontent.com/63381455/152677837-bd7bb6ee-e8db-450d-a13c-688f4ee58bfb.png)
-
-## Workshop Overview
-
-This comprehensive workshop covers CMOS circuit design fundamentals and SPICE simulation using the open-source SKY130 PDK. The workshop combines theoretical understanding with hands-on laboratory exercises, progressing from basic MOSFET behavior to complete CMOS inverter characterization and robustness analysis.
-
-**Workshop Focus Areas:**
-- MOSFET device physics and characteristics
-- Velocity saturation effects in scaled devices
-- CMOS inverter design and analysis
-- Static Timing Analysis (STA) fundamentals
-- Noise margin and robustness evaluation
-- Power supply and device variation studies
 
 ---
 
@@ -23,8 +10,7 @@ This comprehensive workshop covers CMOS circuit design fundamentals and SPICE si
 - [Day 3: CMOS Switching Threshold and Dynamic Simulations](#day-3-cmos-switching-threshold-and-dynamic-simulations)
 - [Day 4: Noise Margin Analysis for CMOS Inverter](#day-4-noise-margin-analysis-for-cmos-inverter)
 - [Day 5: Power Supply and Device Variation in CMOS Inverter Robustness](#day-5-power-supply-and-device-variation-in-cmos-inverter-robustness)
-- [Workshop Tools and Setup](#workshop-tools-and-setup)
-- [Consolidated Results and Analysis](#consolidated-results-and-analysis)
+- [References](#references)
 - [Acknowledgements](#acknowledgements)
 
 ---
@@ -156,6 +142,11 @@ plot -vdd#branch
 
 ![Id vs Vds Long Channel](https://user-images.githubusercontent.com/63381455/154033661-8f20fdbc-56b8-422e-942d-5015f28c781f.JPG)
 
+### Results
+
+<img width="822" height="697" alt="spice_day1_id_vds" src="https://github.com/user-attachments/assets/3896062d-922e-4cdd-abd2-5f8497aab443" />
+
+
 **Observations:**
 - **Linear Region**: Current increases linearly with Vds for low Vds
 - **Saturation Region**: Current plateaus at higher Vds
@@ -205,6 +196,11 @@ plot -vdd#branch
 #### Expected Results
 
 ![Id vs Vgs Curve](https://user-images.githubusercontent.com/63381455/154209289-48fdef8b-a5a4-4a9e-a550-d3ccbbf521f2.png)
+
+#### Results
+
+<img width="1046" height="761" alt="spice_day1_id_vgs" src="https://github.com/user-attachments/assets/cc8bee4a-a050-4179-8046-bc6549f42128" />
+
 
 **Threshold Voltage Extraction:**
 1. Plot Id vs Vgs on linear scale
@@ -401,9 +397,9 @@ ngspice day2_nfet_idvds_L015_W039.spice
 plot -vdd#branch
 ```
 
-#### Expected Results
+#### Results
 
-![Short Channel Id-Vds](https://user-images.githubusercontent.com/63381455/154209554-c227f4ef-2d4d-4b16-b4fc-bb521716851b.png)
+<img width="1058" height="670" alt="spice_day2_id_vds" src="https://github.com/user-attachments/assets/9c3e38a2-3df8-4aa8-af00-b9165766d2cf" />
 
 **Comparative Analysis:**
 
@@ -461,9 +457,10 @@ ngspice day2_nfet_idvgs_L015_W039.spice
 plot -vdd#branch
 ```
 
-#### Expected Results
+#### Results
 
-![Short Channel Id-Vgs](https://user-images.githubusercontent.com/63381455/154209884-c21b123f-a3d0-4203-ad6d-4ed78d9a92e2.png)
+<img width="1097" height="762" alt="spice_day2_id_vgs" src="https://github.com/user-attachments/assets/f196817e-fd6d-4e2c-a50c-58b376316a30" />
+
 
 **Observations:**
 - **Sublinear behavior** in strong inversion (not quadratic)
@@ -672,9 +669,10 @@ ngspice day3_inv_vtc_Wp084_Wn036.spice
 plot out vs in
 ```
 
-#### Expected Results
+#### Results
 
-![VTC Wp084 Wn036](https://user-images.githubusercontent.com/63381455/152681920-f5cf0fa0-2bf9-4094-bb34-8c1cd3248615.png)
+<img width="1197" height="757" alt="spice_day3_vtc_in_out" src="https://github.com/user-attachments/assets/b1d52602-1253-4a31-bdec-e67b1912ae58" />
+
 
 **Switching Threshold Extraction:**
 
@@ -689,6 +687,9 @@ Method 2: SPICE Measurement
 ```
 
 **Expected Vm ≈ 0.89-0.90V** (close to VDD/2 = 0.9V)
+
+<img width="887" height="745" alt="spice_day3_out_in_threshold" src="https://github.com/user-attachments/assets/d3a5f647-031c-464e-94e9-2a6a7a5ca63e" />
+
 
 ### Lab 3.2: Transient Analysis - Propagation Delays
 
@@ -735,9 +736,10 @@ ngspice day3_inv_tran_Wp084_Wn036.spice
 plot out vs time in
 ```
 
-#### Expected Results
+#### Results
 
-![Transient Wp084 Wn036](https://user-images.githubusercontent.com/63381455/152681840-7b0078e8-33b7-46a7-9cc6-faae6b709947.png)
+<img width="1098" height="733" alt="spice_day3_transient_out_in_2 34" src="https://github.com/user-attachments/assets/5939890e-f1a7-42cb-b567-8d61aeb130f3" />
+
 
 **Delay Measurements:**
 
@@ -762,6 +764,9 @@ Using SPICE .measure statements:
 - tr ≈ 100 ps
 - tf ≈ 90 ps
 - tp = (73 + 75)/2 = **74 ps**
+
+<img width="887" height="758" alt="spice_day3_transient_risedelay_falldelay_2 34" src="https://github.com/user-attachments/assets/47d31873-fed2-4e3f-bf62-db39ad125a9c" />
+
 
 ### Lab 3.3: Effect of Device Sizing on Delays
 
@@ -804,9 +809,10 @@ plot out vs time in
 .end
 ```
 
-#### Expected Results
+#### Results
 
-![Transient Wp084 Wn084](https://user-images.githubusercontent.com/63381455/152682013-253c279e-64e1-40de-a43d-938e3881fd39.png)
+<img width="1192" height="780" alt="spice_day3_transient_out_in_equal" src="https://github.com/user-attachments/assets/63d709fc-bf4b-4583-aad9-f1eb060ee296" />
+
 
 ## Consolidated Results Table
 
@@ -1082,40 +1088,12 @@ ngspice day4_inv_noisemargin_wp1_wn036.spice
 plot out vs in
 ```
 
-#### Advanced Analysis: Finding Unity Gain Points
 
-```spice
-*Enhanced netlist with derivative calculation
-.control
-run
-setplot dc1
 
-* Calculate derivative
-let dVout_dVin = deriv(out)
+#### Results
 
-* Plot VTC and gain
-plot out vs in
-plot dVout_dVin vs in
+<img width="1173" height="732" alt="spice_day4_noise_margin" src="https://github.com/user-attachments/assets/e7e3cb9c-5441-4249-b89d-0fc4e7dab459" />
 
-* Find unity gain points (slope = -1)
-meas dc vil when dVout_dVin=-1 cross=1
-meas dc vih when dVout_dVin=-1 cross=2
-
-* Find VOL and VOH
-meas dc vol find out when in=0
-meas dc voh find out when in=1.8
-
-* Calculate noise margins
-let nml = vil - vol
-let nmh = voh - vih
-
-print nml nmh
-.endc
-```
-
-#### Expected Results
-
-![Noise Margin VTC](https://user-images.githubusercontent.com/63381455/152843755-83a4eb04-74a0-4db2-91c3-3469e562ad19.png)
 
 **Extracted Values (Wp = 1.0μm, Wn = 0.36μm):**
 
@@ -1171,29 +1149,7 @@ Run simulation for each case and extract noise margins.
 | 4.67 | 0.948 | 1.618 | 0.135 | 0.998 | 0.765 | 0.620 | 0.630 | 1.250 |
 | 7.00 | 0.975 | 1.605 | 0.148 | 1.025 | 0.735 | 0.580 | 0.587 | 1.167 |
 
-### Graphical Representation
 
-```
-NMH vs Wp/Wn:
-    |
-0.7 |●
-    |  ●
-0.65|    ●
-    |      ●
-0.6 |        ●
-    |__________
-      2  3  4  5  6  7
-
-NML vs Wp/Wn:
-    |
-0.7 |●
-    |  ●
-0.65|    ●
-    |      ●
-0.6 |        ●
-    |__________
-      2  3  4  5  6  7
-```
 
 ### Key Observations
 
@@ -1503,6 +1459,11 @@ gedit day5_inv_supplyvariation_Wp1_Wn036.spice
 ngspice day5_inv_supplyvariation_Wp1_Wn036.spice
 ```
 
+#### Results 
+
+<img width="1220" height="755" alt="spice_day5_power_supply_variation" src="https://github.com/user-attachments/assets/7b6a8af5-b649-428b-8ff3-551f18ceb92f" />
+
+
 #### VDD Sweep Results
 
 | VDD (V) | Vm (V) | VOH (V) | VOL (V) | NMH (V) | NML (V) | Gain (max) |
@@ -1587,6 +1548,11 @@ ngspice day5_inv_devicevariation_wp7_wn042.spice
 # Plot VTC
 plot out vs in
 ```
+
+#### Results
+
+<img width="1123" height="772" alt="spice_day5_device_variation" src="https://github.com/user-attachments/assets/b5867cee-715d-46d5-9d62-19df822c6d9a" />
+
 
 #### Device Variation Results
 
@@ -1804,27 +1770,6 @@ For VDD = 1.8V:
    - Parametric variation analysis
    - Extraction of critical parameters
    - Visualization of design space
-
-### Design Checklist
-
-- [ ] Verified operation at VDD,min and VDD,max
-- [ ] Checked all 5 process corners (TT, FF, SS, FS, SF)
-- [ ] Validated noise margins ≥ 25% VDD
-- [ ] Confirmed switching threshold ≈ 0.5·VDD ± 10%
-- [ ] Measured propagation delays at all corners
-- [ ] Calculated power consumption (dynamic + leakage)
-- [ ] Considered temperature range (-40°C to +125°C)
-- [ ] Performed Monte Carlo if critical path
-- [ ] Documented corner-specific failures
-- [ ] Iterated sizing if specs not met
-
-### Next Steps
-
-- **Day 6:** Advanced topics (if applicable)
-  - Leakage mechanisms and mitigation
-  - Process-voltage-temperature (PVT) optimization
-  - Statistical timing analysis
-  - Design for manufacturability
 
 ---
 
